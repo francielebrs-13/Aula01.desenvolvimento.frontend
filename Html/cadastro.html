@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumie - Cadastro</title>
+    <link rel="icon" type="image/png" href="../Assets/icone-pata.png">
+    <link rel="stylesheet" href="../Css/style.css">
+</head>
+
+<body class="pagina-cadastro">
+
+    <!-- HEADER FIXO -->
+    <header class="header-fixo">
+        <h1>Lumie - Resgate e Adoção de Animais!</h1>
+        <button id="hamburguer" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+        <button id="btn-contraste" aria-label="Alternar modo de alto contraste">Alto contraste</button>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="botao">Início</a></li>
+                <li>
+                    <a href="projeto.html" class="botao">Projeto</a>
+                    <ul class="submenu">
+                        <li><a href="#voluntariado">Voluntariado</a></li>
+                        <li><a href="#resgates">Resgates</a></li>
+                        <li><a href="#adocao">Adoção</a></li>
+                    </ul>
+                </li>
+                <li><a href="cadastro.html" class="botao">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- BLOCO HORIZONTAL DE INTRO -->
+        <section class="horizontal-section" style="background-image: url('../Assets/voluntaria.jpg')" loading="lazy">
+            <div class="texto-lado">
+                <h2>Junte-se à nossa equipe!</h2>
+                <p>Ajude a transformar a vida de muitos animaizinhos! Preencha o formulário abaixo e faça parte da nossa
+                    ONG.</p>
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO -->
+        <div class="form-container">
+            <form id="formCadastro" class="form_box" novalidate>
+                <h2 class="title">Cadastre-se:</h2>
+
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required
+                    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 000000000" required
+                    pattern="\(\d{2}\) \d{5}-\d{4}">
+
+                <label for="nascimento">Data de Nascimento</label>
+                <input type="date" id="nascimento" name="nascimento" required>
+
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Rua, número e complemento" required>
+
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" placeholder="Ex: João Pessoa" required>
+
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" name="estado" placeholder="Ex: PB" maxlength="2">
+                <fieldset class="disponibilidade">
+                    <legend>Disponibilidade</legend>
+                    <label>
+                        <input type="radio" name="disponibilidade" value="manhã" checked>
+                        Manhã
+                    </label>
+                    <label>
+                        <input type="radio" name="disponibilidade" value="tarde">
+                        Tarde
+                    </label>
+                    <label>
+                        <input type="radio" name="disponibilidade" value="noite">
+                        Noite
+                    </label>
+                    <label>
+                        <input type="radio" name="disponibilidade" value="final de semana">
+                        Flex
+                    </label>
+                </fieldset>
+
+                <label for="ajuda">Como gostaria de ajudar?</label>
+                <textarea id="ajuda" name="ajuda" rows="4"
+                    placeholder="Conte um pouco sobre como gostaria de contribuir"></textarea>
+
+                <div id="mensagem" aria-live="polite" style="margin-bottom:1rem;"></div>
+
+                <button type="submit">Enviar cadastro 💚</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Contato: <a href="mailto:contato@organizacaoonglumie.org.br">contato@organizacaoonglumie.org.br</a> |
+            Telefone: (83) 99495-4545</p>
+        <p>Siga-nos nas redes sociais:
+            <a href="#">Instagram</a> |
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a>
+        </p>
+        <p>&copy; 2025 Lumie - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../Java/script.js"></script>
+</body>
+
+</html>
