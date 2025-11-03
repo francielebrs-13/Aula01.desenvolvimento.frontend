@@ -1,0 +1,615 @@
+/* =========================
+   1. VARIÁVEIS GLOBAIS (Design System)
+   ========================= */
+:root {
+  /* Cores */
+  --cor-primaria: #885837;
+  --cor-secundaria: #D2B48C;
+  --cor-destaque: #bf876c;
+  --cor-fundo: #F5EDE0;
+  --cor-texto: #3E2723;
+  --cor-branca: #FFFFFF;
+  --cor-neutra-clara: #e0e0f0;
+  --cor-neutra-escura: #2c3e50;
+  --cor-alerta: #e74c3c;
+  --cor-foco-acessivel: #ffcc00;
+
+  /* Tipografia */
+  --font-md: 2.0625rem;
+  --font-lg: 2.625rem;
+  --font-xl: 4.375rem;
+
+  /* Espaçamento Modular (Múltiplos de 8px) */
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+}
+
+/* =========================
+   2. ESTILOS GERAIS (Base)
+   ========================= */
+html {
+  /* Não tocar aqui. */
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: var(--cor-texto);
+  background: linear-gradient(135deg, var(--cor-fundo) 0%, var(--cor-secundaria) 40%, var(--cor-primaria) 100%);
+  background-attachment: fixed;
+  text-align: center;
+  overflow-x: hidden; /* Garante que não haverá rolagem horizontal indesejada */
+  font-size: 16px;
+}
+
+h1 {
+  font-size: var(--font-xl);
+  margin-top: var(--space-48);
+  margin-bottom: var(--space-24);
+}
+
+h2 {
+  font-size: var(--font-lg);
+  margin-top: var(--space-32);
+  margin-bottom: var(--space-16);
+}
+
+h3 {
+  font-size: var(--font-md);
+  margin-top: var(--space-24);
+  margin-bottom: var(--space-8);
+}
+
+main p,
+section p,
+footer p:not(footer p) {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-16);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+footer p {
+  font-size: 14px;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+
+/* =========================
+   3. HEADER / NAVEGAÇÃO
+   ========================= */
+
+header {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.coluna {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.coluna img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.header-fixo {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: var(--space-16) var(--space-32);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  color: var(--cor-texto);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-fixo h1 {
+  font-size: var(--font-lg);
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-24);
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+nav ul li a {
+  font-size: 1rem;
+  padding: var(--space-8) var(--space-16);
+  text-decoration: none;
+  color: var(--cor-texto);
+  border-radius: var(--space-8);
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.2s;
+}
+
+#btn-contraste {
+  border: 2px solid var(--cor-foco-acessivel);
+  background-color: var(--cor-branca);
+  color: var(--cor-texto);
+  font-size: 0.875rem;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--space-8);
+  transition: background-color 0.2s, color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li:hover .submenu,
+nav ul li:focus-within .submenu {
+  display: flex;
+}
+
+nav ul li .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--cor-secundaria);
+  border-radius: 10px;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  padding: var(--space-8) 0;
+}
+
+nav ul li .submenu a {
+  color: var(--cor-texto);
+  background-color: transparent;
+  padding: var(--space-8) var(--space-16);
+  font-size: 0.875rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#hamburguer {
+  display: none;
+  font-size: var(--font-lg);
+  background: none;
+  border: none;
+  color: var(--cor-texto);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* =========================
+   4. MAIN / CONTEÚDO
+   ========================= */
+main {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: block;
+}
+
+section {
+  padding: var(--space-32) var(--space-48);
+  text-align: left;
+  display: flow-root;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--cor-primaria);
+  color: var(--cor-branca);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  margin-right: var(--space-8);
+  font-weight: bold;
+}
+
+.badge.destaque {
+  background-color: var(--cor-destaque);
+}
+
+/* =========================
+   5. FORMULÁRIO
+   ========================= */
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-32) var(--space-16);
+  width: 100%;
+}
+
+.form_box {
+  background-color: var(--cor-branca);
+  border-radius: var(--space-16);
+  width: 100%;
+  max-width: 1400px;
+  padding: var(--space-32);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: var(--space-8);
+  margin: var(--space-8) 0;
+  border: 2px solid var(--cor-texto);
+  outline: none;
+  border-radius: var(--space-8);
+  background-color: var(--cor-fundo);
+  font-size: 16px;
+  min-width: 0;
+}
+
+button[type="submit"] {
+  background-color: var(--cor-destaque);
+  color: var(--cor-branca);
+  padding: var(--space-16) var(--space-32);
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Grid do formulário */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-24);
+  margin-bottom: var(--space-32);
+}
+
+/* Estilos de rádio/checkboxes */
+.disponibilidade {
+  border: 1px solid var(--cor-neutra-clara);
+  padding: var(--space-16);
+  border-radius: var(--space-8);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16);
+}
+
+.disponibilidade legend {
+  font-weight: bold;
+  padding: 0 var(--space-8);
+}
+
+.disponibilidade label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: var(--space-8);
+  font-size: 16px;
+}
+
+/* =========================
+   6. CARDS
+   ========================= */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-24);
+  padding: var(--space-32) var(--space-48);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  background-color: var(--cor-branca);
+  border-radius: var(--space-16);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: var(--space-24);
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 700px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card img {
+  height: 200px;
+  width: 100%;
+  border-radius: var(--space-16) var(--space-16) 0 0;
+  object-fit: cover;
+}
+
+.card .content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* =========================
+   7. SEÇÕES HORIZONTAIS
+   ========================= */
+.horizontal-section {
+  position: relative;
+  width: 100%; /* CORREÇÃO: Usar 100% para evitar overflow horizontal (100vw) */
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: var(--space-48) var(--space-64);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top 30%;
+  min-height: 25vw;
+  box-sizing: border-box;
+}
+
+.horizontal-section .texto-lado {
+  min-width: 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: var(--space-24);
+  z-index: 10;
+  color: var(--cor-branca);
+  text-align: left;
+  background-color: rgba(62, 39, 35, 0.75);
+  border-radius: var(--space-16);
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.horizontal-section .texto-lado h2,
+.horizontal-section .texto-lado p {
+  flex-shrink: 0;
+  min-width: 0;
+  color: var(--cor-branca);
+  margin-top: 0;
+}
+
+.horizontal-section .texto-lado p {
+  margin-bottom: 0;
+}
+
+.bloco-doacao {
+  background-color: var(--cor-neutra-clara);
+  border-radius: var(--space-8);
+  padding: var(--space-24);
+  margin: var(--space-24) 0;
+  text-align: left;
+}
+
+.bloco-doacao h3 {
+  margin-top: 0;
+  color: var(--cor-primaria);
+  font-size: 1.5rem;
+}
+
+/* =========================
+   8. BOTÕES
+   ========================= */
+
+.botao-centralizado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--space-48) 0;
+  width: 100%;
+}
+
+.botao-voluntario,
+.card a.botao-voluntario {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-16) var(--space-32);
+  font-size: 1rem;
+  min-width: 250px;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-primaria);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 0 var(--cor-primaria);
+  transition: all 0.2s, box-shadow 0.3s;
+  cursor: pointer;
+  margin-top: var(--space-16);
+}
+
+
+/* =========================
+   9. RESPONSIVIDADE / BREAKPOINTS
+   ========================= */
+
+/* 5. Mobile Médio (max-width: 576px) */
+@media (max-width: 576px) {
+  section {
+    padding: var(--space-24) var(--space-16);
+  }
+
+  .horizontal-section .texto-lado h2 {
+    font-size: var(--font-md);
+  }
+
+  .header-fixo h1 {
+    font-size: 2rem;
+  }
+}
+
+/* 4. Tablet Retrato / Mobile Grande (max-width: 768px) - Menu Hambúrguer ON */
+@media (max-width: 768px) {
+  .header-fixo {
+    position: relative; 
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-16) var(--space-24);
+    height: auto;
+    min-height: 80px; 
+  }
+
+  .header-fixo h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.5rem; 
+  }
+
+  /* Reposiciona o botão de contraste (absoluto) */
+  #btn-contraste {
+    position: absolute;
+    top: var(--space-16); 
+    right: var(--space-24); 
+    z-index: 1001; 
+    font-size: 0.75rem; 
+    padding: var(--space-4) var(--space-12);
+  }
+
+  nav {
+    width: 100%;
+    margin-top: var(--space-16);
+  }
+
+  nav ul {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    gap: var(--space-8);
+    padding-top: var(--space-8);
+  }
+
+  /* MOSTRA O MENU QUANDO ABERTO PELO JS */
+  nav.menu-aberto ul {
+    display: flex;
+    text-align: left;
+  }
+
+  /* Reposiciona o botão hambúrguer */
+  #hamburguer {
+    display: block;
+    position: absolute;
+    right: calc(var(--space-24) + 100px); 
+    top: var(--space-16);
+    color: var(--cor-texto);
+    font-size: var(--font-lg);
+    z-index: 1001;
+  }
+
+  /* Quebra o grid do formulário para 1 coluna no mobile */
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+
+  .cards-container {
+    padding: var(--space-24) var(--space-16);
+  }
+
+  .horizontal-section {
+    height: auto;
+    min-height: 40vw;
+    padding: var(--space-32) var(--space-24);
+  }
+
+  .horizontal-section .texto-lado {
+    max-width: 100%;
+    padding: var(--space-16);
+  }
+}
+
+/* 2. Desktop Médio (min-width: 992px) */
+@media (min-width: 992px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-24);
+  }
+}
+
+
+/* =========================
+   10. ACESSIBILIDADE: MODO ESCURO / ALTO CONTRASTE
+   ========================= */
+
+body.modo-escuro {
+  background-color: #121212 !important;
+  color: #f1f1f1 !important;
+  background: #121212 !important;
+}
+
+body.modo-escuro .header-fixo,
+body.modo-escuro footer,
+body.modo-escuro .card,
+body.modo-escuro .form_box {
+  background-color: #1e1e1e !important;
+  color: #f1f1f1 !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.modo-escuro .coluna {
+  background-color: #1e1e1e !important;
+}
+
+body.modo-escuro a,
+body.modo-escuro nav a {
+  color: #f1f1f1 !important;
+}
+
+body.modo-escuro nav a:hover,
+body.modo-escuro nav a:focus,
+body.modo-escuro nav .botao:hover,
+body.modo-escuro nav .botao:focus {
+  color: #121212 !important;
+  background-color: var(--cor-foco-acessivel) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px var(--cor-foco-acessivel);
+}
+
+body.modo-escuro input,
+body.modo-escuro select,
+body.modo-escuro textarea {
+  background-color: #333333 !important;
+  color: #f1f1f1 !important;
+  border-color: #555555 !important;
+}
+
+body.modo-escuro input:focus,
+body.modo-escuro select:focus,
+body.modo-escuro textarea:focus {
+  border-color: var(--cor-foco-acessivel) !important;
+  box-shadow: 0 0 6px var(--cor-foco-acessivel) !important;
+}
+
+body.modo-escuro button[type="submit"],
+body.modo-escuro .botao-voluntario {
+  background-color: var(--cor-foco-acessivel) !important;
+  color: #121212 !important;
+  box-shadow: none !important;
+}
+
+body.modo-escuro button[type="submit"]:hover,
+body.modo-escuro .botao-voluntario:hover {
+  background-color: #ffa500 !important;
+  color: #fff !important;
+}
