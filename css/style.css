@@ -44,7 +44,7 @@ body {
   background: linear-gradient(135deg, var(--cor-fundo) 0%, var(--cor-secundaria) 40%, var(--cor-primaria) 100%);
   background-attachment: fixed;
   text-align: center;
-  overflow-x: hidden; /* Garante que não haverá rolagem horizontal indesejada */
+  overflow-x: hidden;
   font-size: 16px;
 }
 
@@ -356,7 +356,7 @@ button[type="submit"] {
    ========================= */
 .horizontal-section {
   position: relative;
-  width: 100%; /* CORREÇÃO: Usar 100% para evitar overflow horizontal (100vw) */
+  width: 100vw;
   margin: 0;
   display: flex;
   justify-content: flex-start;
@@ -463,28 +463,22 @@ button[type="submit"] {
 /* 4. Tablet Retrato / Mobile Grande (max-width: 768px) - Menu Hambúrguer ON */
 @media (max-width: 768px) {
   .header-fixo {
-    position: relative; 
+    position: relative;
     flex-direction: column;
     align-items: flex-start;
     padding: var(--space-16) var(--space-24);
     height: auto;
-    min-height: 80px; 
-  }
-
-  .header-fixo h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 1.5rem; 
+    min-height: 80px;
   }
 
   /* Reposiciona o botão de contraste (absoluto) */
   #btn-contraste {
     position: absolute;
-    top: var(--space-16); 
-    right: var(--space-24); 
-    z-index: 1001; 
-    font-size: 0.75rem; 
-    padding: var(--space-4) var(--space-12);
+    top: var(--space-16);
+    right: var(--space-24);
+    margin-top: 0;
+    align-self: unset;
+    z-index: 1001;
   }
 
   nav {
@@ -510,7 +504,8 @@ button[type="submit"] {
   #hamburguer {
     display: block;
     position: absolute;
-    right: calc(var(--space-24) + 100px); 
+    /* Posição à esquerda do botão de contraste para não colidir */
+    right: calc(var(--space-24) + 120px);
     top: var(--space-16);
     color: var(--cor-texto);
     font-size: var(--font-lg);
