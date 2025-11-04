@@ -2,7 +2,6 @@
    1. VARIÁVEIS GLOBAIS (Design System)
    ========================= */
 :root {
-  /* Cores */
   --cor-primaria: #885837;
   --cor-secundaria: #D2B48C;
   --cor-destaque: #bf876c;
@@ -19,7 +18,7 @@
   --font-lg: 2.625rem;
   --font-xl: 4.375rem;
 
-  /* Espaçamento Modular (Múltiplos de 8px) */
+  /* Espaçamento Modular */
   --space-8: 0.5rem;
   --space-16: 1rem;
   --space-24: 1.5rem;
@@ -32,7 +31,7 @@
    2. ESTILOS GERAIS (Base)
    ========================= */
 html {
-  /* Não tocar aqui. */
+  /* espaço*/
 }
 
 body {
@@ -82,7 +81,6 @@ footer p {
   margin-top: var(--space-8);
   margin-bottom: var(--space-8);
 }
-
 
 /* =========================
    3. HEADER / NAVEGAÇÃO
@@ -445,7 +443,6 @@ button[type="submit"] {
    9. RESPONSIVIDADE / BREAKPOINTS
    ========================= */
 
-/* 5. Mobile Médio (max-width: 576px) */
 @media (max-width: 576px) {
   section {
     padding: var(--space-24) var(--space-16);
@@ -460,7 +457,6 @@ button[type="submit"] {
   }
 }
 
-/* 4. Tablet Retrato / Mobile Grande (max-width: 768px) - Menu Hambúrguer ON */
 @media (max-width: 768px) {
   .header-fixo {
     position: relative;
@@ -471,7 +467,6 @@ button[type="submit"] {
     min-height: 80px;
   }
 
-  /* Reposiciona o botão de contraste (absoluto) */
   #btn-contraste {
     position: absolute;
     top: var(--space-16);
@@ -494,17 +489,14 @@ button[type="submit"] {
     padding-top: var(--space-8);
   }
 
-  /* MOSTRA O MENU QUANDO ABERTO PELO JS */
   nav.menu-aberto ul {
     display: flex;
     text-align: left;
   }
 
-  /* Reposiciona o botão hambúrguer */
   #hamburguer {
     display: block;
     position: absolute;
-    /* Posição à esquerda do botão de contraste para não colidir */
     right: calc(var(--space-24) + 120px);
     top: var(--space-16);
     color: var(--cor-texto);
@@ -512,7 +504,6 @@ button[type="submit"] {
     z-index: 1001;
   }
 
-  /* Quebra o grid do formulário para 1 coluna no mobile */
   .form-grid {
     grid-template-columns: 1fr;
     gap: var(--space-16);
@@ -534,7 +525,6 @@ button[type="submit"] {
   }
 }
 
-/* 2. Desktop Médio (min-width: 992px) */
 @media (min-width: 992px) {
   .form-grid {
     grid-template-columns: 1fr 1fr;
