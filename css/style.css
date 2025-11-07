@@ -112,7 +112,7 @@ header {
   height: 80px;
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(4px);
-  color: var(--cor-texto);
+  color: var(--cor-destaque);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -135,7 +135,7 @@ nav ul li a {
   font-size: 1rem;
   padding: var(--space-8) var(--space-16);
   text-decoration: none;
-  color: var(--cor-texto);
+  color: var(--cor-primaria);
   border-radius: var(--space-8);
   font-weight: bold;
   transition: background-color 0.3s, box-shadow 0.2s;
@@ -175,7 +175,7 @@ nav ul li .submenu {
 }
 
 nav ul li .submenu a {
-  color: var(--cor-texto);
+  color: var(--cor-primaria);
   background-color: transparent;
   padding: var(--space-8) var(--space-16);
   font-size: 0.875rem;
@@ -214,7 +214,7 @@ section {
   display: inline-block;
   padding: 0.25rem 0.5rem;
   background-color: var(--cor-primaria);
-  color: var(--cor-branca);
+  color: var(--cor-destaque);
   border-radius: 0.25rem;
   font-size: 0.875rem;
   margin-right: var(--space-8);
@@ -263,7 +263,7 @@ textarea {
 
 button[type="submit"] {
   background-color: var(--cor-destaque);
-  color: var(--cor-branca);
+  color: var(--cor-texto);
   padding: var(--space-16) var(--space-32);
   border: none;
   border-radius: 12px;
@@ -397,9 +397,9 @@ button[type="submit"] {
   text-align: left;
 }
 
-.bloco-doacao h3 {
+.bloco-doacao h3,ul {
   margin-top: 0;
-  color: var(--cor-primaria);
+  color: var(--cor-texto);
   font-size: 1.5rem;
 }
 
@@ -424,7 +424,7 @@ button[type="submit"] {
   font-size: 1rem;
   min-width: 250px;
   background-color: var(--cor-secundaria);
-  color: var(--cor-primaria);
+  color: var(--cor-texto);
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
@@ -592,5 +592,5 @@ body.modo-escuro .botao-voluntario {
 body.modo-escuro button[type="submit"]:hover,
 body.modo-escuro .botao-voluntario:hover {
   background-color: #ffa500 !important;
-  color: #fff !important;
+  color: (var(--cor-branca) )!important;
 }
