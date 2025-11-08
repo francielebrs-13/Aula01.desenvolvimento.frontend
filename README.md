@@ -13,7 +13,7 @@ O desenvolvimento deste projeto focou em:
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **HTML5:** Estrutura e Semântica.
+* **HTML5:** Estrutura e Semântica. 
 * **CSS3:** Design Responsivo (uso de Flexbox, Grid e Media Queries) e Design System com Variáveis CSS.
 * **JavaScript (Puro):** Interatividade, Máscaras de Input, Validação de Formulário e Funcionalidades de Acessibilidade (Menu Hambúrguer e Alto Contraste).
 
